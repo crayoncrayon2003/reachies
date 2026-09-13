@@ -28,3 +28,5 @@
 .event-source span{display:block;font-size:11px;color:#577166;margin-bottom:4px}.event-source a{display:block;overflow-wrap:anywhere;text-decoration:underline}
 
 .event-schedule{max-height:160px;overflow:auto;overflow-wrap:anywhere;font-size:11px;line-height:1.7}
+
+.sidebar-heading .app-title,.sidebar-heading .app-notice{display:block;white-space:nowrap}.sidebar-heading .app-notice{font-size:16px;margin-top:4px}
