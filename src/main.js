@@ -10,6 +10,7 @@ import { COLORS, bestJourney, assess, validateStationData } from './accessibilit
 import { EVENT_SYMBOLS, iconSvg, REACH_BANDS, reachColor } from './map-symbols.js';
 const $ = id => document.getElementById(id);
 const text = (tag, value, className) => { const e = document.createElement(tag); e.textContent = value; if (className) e.className = className; return e; };
+$('map-legend').open = !window.matchMedia('(max-width:800px)').matches;
 const map = L.map('map', { zoomControl: false }).setView([34.689,135.515],14);
 L.control.zoom({ position: 'bottomright' }).addTo(map);
 for (const [name,zIndex] of [['reach',350],['buses',390],['rails',410],['trip',450],['events',490],['stations',470]]) map.createPane(name).style.zIndex = zIndex;

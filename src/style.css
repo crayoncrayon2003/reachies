@@ -30,3 +30,5 @@
 .event-schedule{max-height:160px;overflow:auto;overflow-wrap:anywhere;font-size:11px;line-height:1.7}
 
 .sidebar-heading .app-title,.sidebar-heading .app-notice{display:block;white-space:nowrap}.sidebar-heading .app-notice{font-size:16px;margin-top:4px}
+
+.legend{display:block;margin:0;padding:0}.legend>summary{padding:12px 15px;min-height:44px;font-size:12px;font-weight:700;cursor:pointer}.legend>summary:focus-visible{outline:3px solid #2d9984;outline-offset:-3px}.legend-content{display:flex;flex-direction:column;gap:8px;padding:0 15px 15px}.legend:not([open])>.legend-content{display:none}.legend-content>details>span{display:block;margin-top:8px}
