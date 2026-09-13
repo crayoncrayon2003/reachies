@@ -168,9 +168,14 @@ function updateStationLabels() {
   }
 }
 map.on('moveend',renderStations);
+function setBusVisible(visible){
+  // Retain the Canvas renderer so pending redraws remain valid across visibility changes.
+  map.getPane('buses').hidden=!visible;
+  if(visible)busLayer.addTo(map);else map.removeLayer(busLayer);
+}
 async function toggleBuses() {
   renderStations();
-  if (!$('show-bus').checked) {map.removeLayer(busLayer);map.removeLayer(busRenderer);return;}
+  if (!$('show-bus').checked) {setBusVisible(false);return;}
   $('bus-status').textContent='バス経路を読み込み中…';
   try {
     if(!busData){
@@ -184,11 +189,11 @@ async function toggleBuses() {
       const showBusAfterLoad=$('show-bus').checked;
       enabledBuses=createRouteControls($('bus-switches'),$('show-bus'),busData.features.map((f,i)=>({id:String(i),name:f.properties.operator})),enabled=>{
         for(const [id,layer] of busLayers)if(enabled.has(id))busLayer.addLayer(layer);else busLayer.removeLayer(layer);
-        if(enabled.size)busLayer.addTo(map);else{map.removeLayer(busLayer);map.removeLayer(busRenderer);}
+        setBusVisible(enabled.size>0);
       });
       if(!showBusAfterLoad){$('show-bus').checked=false;$('show-bus').dispatchEvent(new Event('change'));}
     }
-    if($('show-bus').checked)busLayer.addTo(map);
+    if($('show-bus').checked)setBusVisible(true);
     $('bus-status').textContent=`${busData.features.length}事業者・自治体の経路。高速バス未収録。運行状況は未確認。`;
   }catch(error){busRequest=null;busData=null;$('show-bus').checked=false;$('bus-status').textContent=`バス経路を読み込めませんでした：${error.message}`;}
 }

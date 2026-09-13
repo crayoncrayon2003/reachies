@@ -96,7 +96,7 @@ test('historical bus network loads on demand and can be removed',async({page})=>
   await page.locator('#show-bus').check();await expect(page.locator('#bus-status')).toContainText('219', {timeout:20000});
   await expect(page.locator('.leaflet-buses-pane canvas')).toBeVisible();
   await page.locator('#show-bus').uncheck();
-  await expect(page.locator('.leaflet-buses-pane canvas')).toHaveCount(0);
+  await expect(page.locator('.leaflet-buses-pane')).toBeHidden();
   await page.locator('#show-bus').check();
   await expect(page.locator('.leaflet-buses-pane canvas')).toBeVisible();
 });
@@ -354,11 +354,27 @@ test('network controls are always visible with independent layers and route swit
  await expect(page.locator('.station-dot:not(.bus-stop-dot)')).toHaveCount(0);
  await expect(page.locator('.rail-loop')).toHaveCount(1);
  await page.locator('#show-bus-stops').uncheck();await expect(page.locator('.bus-stop-dot')).toHaveCount(0);
- await page.locator('#show-bus').uncheck();await expect(page.locator('.leaflet-buses-pane canvas')).toHaveCount(0);
+ await page.locator('#show-bus').uncheck();await expect(page.locator('.leaflet-buses-pane')).toBeHidden();
  await page.locator('#bus-switches [data-route-id]').first().check();
  await expect(page.locator('.leaflet-buses-pane canvas')).toHaveCount(1);
  await expect(page.locator('#show-bus')).toHaveJSProperty('indeterminate',true);
  await expect(page.locator('#bus-switches input[type=checkbox]:checked')).toHaveCount(1);
  await page.locator('#show-bus').check();
  await expect(page.locator('#bus-switches input[type=checkbox]:checked')).toHaveCount(219);
+});
+
+test('bus routes repaint after repeated hide and show without moving the map',async({page})=>{
+ await ready(page);await expect(page.locator('#bus-switches input[type=checkbox]')).toHaveCount(219,{timeout:20000});
+ const painted=()=>page.evaluate(()=>{
+  const pane=document.querySelector('.leaflet-buses-pane'),canvas=pane.querySelector('canvas');
+  if(!canvas||getComputedStyle(pane).display==='none')return 0;
+  const pixels=canvas.getContext('2d').getImageData(0,0,canvas.width,canvas.height).data;
+  let count=0;for(let i=3;i<pixels.length;i+=4)if(pixels[i])count++;return count;
+ });
+ await expect.poll(painted).toBeGreaterThan(1000);
+ const initial=await painted();
+ for(let i=0;i<3;i++){
+  await page.locator('#show-bus').uncheck();await expect.poll(painted).toBe(0);
+  await page.locator('#show-bus').check();await expect.poll(painted).toBe(initial);
+ }
 });
