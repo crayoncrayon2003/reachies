@@ -260,6 +260,9 @@ async function init() {
     const busCredit=text('a','バス経路：国土数値情報2022');busCredit.href='https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N07-2022.html';document.querySelector('footer').append(document.createTextNode(' · '),busCredit);
     map.attributionControl.addAttribution('<a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N02-2025.html">国土数値情報 鉄道2025</a>');
   }
+  const eventCredit=text('a','イベントデータ：OSAKA-INFO（大阪観光局）');
+  eventCredit.href='https://osaka-info.jp/event/';eventCredit.target='_blank';eventCredit.rel='noopener noreferrer';
+  document.querySelector('footer').append(document.createTextNode(' · '),eventCredit);
   journeyEditor=createJourneyEditor({stations:railway.stations,events:events.features,sample:surface.sample&&surface.model?.kind==='radial-demo',getBudget:()=>state().budget,getMode:()=>state().mode,getSelected:()=>selected,onDraw:(stops,result)=>{
     plannerLayer.clearLayers();journeyPoints=stops.map(s=>[s.lat,s.lon]);
     // Draw every adjacent pair, including unfinished or uncomputed legs.
