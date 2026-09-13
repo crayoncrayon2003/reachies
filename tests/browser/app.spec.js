@@ -378,3 +378,22 @@ test('bus routes repaint after repeated hide and show without moving the map',as
   await page.locator('#show-bus').check();await expect.poll(painted).toBe(initial);
  }
 });
+
+for(const url of ['https://example.com/events/market?day=18',null,'javascript:alert(1)'])test(`event popup source URL: ${url}`,async({page})=>{
+ await page.route('**/data/station_events.geojson',async route=>{
+  const response=await route.fetch(),data=await response.json();
+  data.features.find(f=>f.properties.id==='event-1').properties.url=url;
+  await route.fulfill({response,json:data});
+ });
+ await ready(page);
+ await page.locator('.event-card').filter({hasText:'中之島 リバーサイドマーケット'}).click();
+ const popup=page.locator('.leaflet-popup'),link=popup.locator('.event-source a');
+ if(url?.startsWith('https:')){
+  await expect(link).toHaveText(url);await expect(link).toHaveAttribute('href',url);
+  await expect(link).toHaveAttribute('target','_blank');await expect(link).toHaveAttribute('rel','noopener noreferrer');
+  await page.route('https://example.com/**',r=>r.fulfill({contentType:'text/html',body:'Event information'}));
+  const opened=page.waitForEvent('popup');await link.click();const tab=await opened;
+  await expect(tab).toHaveURL(url);await tab.close();
+ }else await expect(link).toHaveCount(0);
+ await expect(popup.getByRole('button',{name:'旅程に追加',exact:true})).toBeVisible();
+});

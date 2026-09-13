@@ -92,6 +92,16 @@ function render() {
   for(const {event,result} of assessed) {
     const p=event.properties;
     const popup=document.createElement('div'); popup.append(text('strong',p.name),text('p',`${p.venue} · ${p.date} ${p.start}–${p.end}`),text('p',categoryLabel[result.category]));
+    if(typeof p.url==='string'&&p.url.trim()){
+      try{
+        const url=new URL(p.url.trim());
+        if(['https:','http:'].includes(url.protocol)&&!url.username&&!url.password){
+          const source=text('p','','event-source'),link=text('a',url.href);
+          link.href=url.href;link.target='_blank';link.rel='noopener noreferrer';
+          source.append(text('span','イベント情報'),link);popup.append(source);
+        }
+      }catch{ /* Invalid URLs are omitted from the popup. */ }
+    }
     if(result.journey)popup.append(text('p',pairText(result.journey)));
     const insertion=journeyEditor.createInsertionControl(`event:${p.id}`,()=>{map.closePopup();activeEvent=null;$('route-detail').hidden=true;});popup.append(insertion.element);
     const pin=text('span','','event-pin'); pin.dataset.category=p.category;

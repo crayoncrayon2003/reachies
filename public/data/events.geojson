@@ -1,1 +1,435 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","geometry":{"type":"Point","coordinates":[135.506,34.692]},"properties":{"id":"event-1","name":"中之島 リバーサイドマーケット","venue":"中之島公園","category":"マーケット","date":"2026-10-18","start":"11:00","end":"17:00","fictional":true,"journeys":{"osaka":{"transit":19.2,"walk":16.5,"bike":13.5,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"},"namba":{"transit":30.7,"walk":25.3,"bike":19.2,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"},"tennoji":{"transit":45.6,"walk":36.6,"bike":26.5,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"}}}},{"type":"Feature","geometry":{"type":"Point","coordinates":[135.526,34.687]},"properties":{"id":"event-2","name":"大阪城公園 みどりの音楽会","venue":"大阪城公園","category":"音楽","date":"2026-10-18","start":"13:00","end":"18:00","fictional":true,"journeys":{"osaka":{"transit":32.4,"walk":26.5,"bike":20.0,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"},"namba":{"transit":33.4,"walk":27.3,"bike":20.5,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"},"tennoji":{"transit":42.1,"walk":33.9,"bike":24.8,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"}}}},{"type":"Feature","geometry":{"type":"Point","coordinates":[135.511,34.649]},"properties":{"id":"event-3","name":"天王寺 週末クラフト市","venue":"てんしば","category":"マーケット","date":"2026-10-18","start":"10:00","end":"17:00","fictional":true,"journeys":{"osaka":{"transit":53.7,"walk":42.8,"bike":30.6,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"},"namba":{"transit":23.3,"walk":19.6,"bike":15.6,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"},"tennoji":{"transit":10.4,"walk":9.8,"bike":9.2,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"}}}},{"type":"Feature","geometry":{"type":"Point","coordinates":[135.489,34.685]},"properties":{"id":"event-4","name":"靱公園 青空ワークショップ","venue":"靱公園","category":"体験","date":"2026-10-18","start":"12:00","end":"16:00","fictional":true,"journeys":{"osaka":{"transit":23.3,"walk":19.6,"bike":15.6,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"},"namba":{"transit":26.3,"walk":21.9,"bike":17.0,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"},"tennoji":{"transit":43.7,"walk":35.1,"bike":25.6,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"}}}},{"type":"Feature","geometry":{"type":"Point","coordinates":[135.574,34.711]},"properties":{"id":"event-5","name":"鶴見緑地 花と暮らしのフェア","venue":"花博記念公園鶴見緑地","category":"自然","date":"2026-10-18","start":"12:00","end":"17:00","fictional":true,"journeys":{"osaka":{"transit":62.1,"walk":49.1,"bike":34.7,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"},"namba":{"transit":71.4,"walk":56.2,"bike":39.3,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"},"tennoji":{"transit":75.2,"walk":59.1,"bike":41.2,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"}}}},{"type":"Feature","geometry":{"type":"Point","coordinates":[135.489,34.611]},"properties":{"id":"event-6","name":"住吉 まちあるきの日","venue":"住吉公園","category":"まち歩き","date":"2026-10-18","start":"13:00","end":"16:00","fictional":true,"journeys":{"osaka":{"transit":84.3,"walk":66.0,"bike":45.7,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"},"namba":{"transit":53.7,"walk":42.7,"bike":30.5,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"},"tennoji":{"transit":42.7,"walk":34.4,"bike":25.1,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"}}}},{"type":"Feature","geometry":{"type":"Point","coordinates":[135.43,34.658]},"properties":{"id":"event-7","name":"港のサンセットライブ","venue":"天保山公園","category":"音楽","date":"2026-10-18","start":"16:00","end":"22:00","fictional":true,"journeys":{"osaka":{"transit":66.5,"walk":52.4,"bike":36.8,"return_status":"difficult","return_note":"サンプル設定：終了後の帰路に注意。終電判定ではありません。"},"namba":{"transit":56.5,"walk":44.9,"bike":31.9,"return_status":"difficult","return_note":"サンプル設定：終了後の帰路に注意。終電判定ではありません。"},"tennoji":{"transit":66.2,"walk":52.2,"bike":36.7,"return_status":"difficult","return_note":"サンプル設定：終了後の帰路に注意。終電判定ではありません。"}}}},{"type":"Feature","geometry":{"type":"Point","coordinates":[135.52,34.613]},"properties":{"id":"event-8","name":"長居 星空シネマ","venue":"長居公園","category":"映画","date":"2026-10-18","start":"18:00","end":"23:00","fictional":true,"journeys":{"osaka":{"transit":84.3,"walk":66.0,"bike":45.7,"return_status":"difficult","return_note":"サンプル設定：終了後の帰路に注意。終電判定ではありません。"},"namba":{"transit":53.5,"walk":42.5,"bike":30.4,"return_status":"difficult","return_note":"サンプル設定：終了後の帰路に注意。終電判定ではありません。"},"tennoji":{"transit":36.9,"walk":29.9,"bike":22.2,"return_status":"difficult","return_note":"サンプル設定：終了後の帰路に注意。終電判定ではありません。"}}}},{"type":"Feature","geometry":{"type":"Point","coordinates":[135.467,34.585]},"properties":{"id":"event-9","name":"堺 水辺のアート散歩","venue":"堺旧港","category":"アート","date":"2026-10-18","start":"12:00","end":"17:00","fictional":true,"journeys":{"osaka":{"transit":107.8,"walk":83.9,"bike":57.2,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"},"namba":{"transit":78.5,"walk":61.6,"bike":42.8,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"},"tennoji":{"transit":69.0,"walk":54.4,"bike":38.1,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"}}}},{"type":"Feature","geometry":{"type":"Point","coordinates":[135.532,34.81]},"properties":{"id":"event-10","name":"万博 週末ピクニック","venue":"万博記念公園","category":"自然","date":"2026-10-18","start":"11:00","end":"16:00","fictional":true,"journeys":{"osaka":{"transit":100.9,"walk":78.6,"bike":53.8,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"},"namba":{"transit":130.6,"walk":101.2,"bike":68.5,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"},"tennoji":{"transit":144.0,"walk":111.4,"bike":75.1,"return_status":"ok","return_note":"サンプル設定：帰路可。実際の終電・運行は未確認です。"}}}}]}
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    135.506,
+                    34.692
+                ]
+            },
+            "properties": {
+                "id": "event-1",
+                "name": "ダミーイベント１",
+                "venue": "中之島公園",
+                "category": "マーケット",
+                "date": "2026-10-18",
+                "start": "11:00",
+                "end": "17:00",
+                "fictional": true,
+                "journeys": {
+                    "osaka": {
+                        "transit": 19.2,
+                        "walk": 16.5,
+                        "bike": 13.5,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    },
+                    "namba": {
+                        "transit": 30.7,
+                        "walk": 25.3,
+                        "bike": 19.2,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    },
+                    "tennoji": {
+                        "transit": 45.6,
+                        "walk": 36.6,
+                        "bike": 26.5,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    135.526,
+                    34.687
+                ]
+            },
+            "properties": {
+                "id": "event-2",
+                "name": "ダミーイベント２",
+                "venue": "大阪城公園",
+                "category": "音楽",
+                "date": "2026-10-18",
+                "start": "13:00",
+                "end": "18:00",
+                "fictional": true,
+                "journeys": {
+                    "osaka": {
+                        "transit": 32.4,
+                        "walk": 26.5,
+                        "bike": 20.0,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    },
+                    "namba": {
+                        "transit": 33.4,
+                        "walk": 27.3,
+                        "bike": 20.5,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    },
+                    "tennoji": {
+                        "transit": 42.1,
+                        "walk": 33.9,
+                        "bike": 24.8,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    135.511,
+                    34.649
+                ]
+            },
+            "properties": {
+                "id": "event-3",
+                "name": "ダミーイベント３",
+                "venue": "てんしば",
+                "category": "マーケット",
+                "date": "2026-10-18",
+                "start": "10:00",
+                "end": "17:00",
+                "fictional": true,
+                "journeys": {
+                    "osaka": {
+                        "transit": 53.7,
+                        "walk": 42.8,
+                        "bike": 30.6,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    },
+                    "namba": {
+                        "transit": 23.3,
+                        "walk": 19.6,
+                        "bike": 15.6,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    },
+                    "tennoji": {
+                        "transit": 10.4,
+                        "walk": 9.8,
+                        "bike": 9.2,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    135.489,
+                    34.685
+                ]
+            },
+            "properties": {
+                "id": "event-4",
+                "name": "ダミーイベント４",
+                "venue": "靱公園",
+                "category": "体験",
+                "date": "2026-10-18",
+                "start": "12:00",
+                "end": "16:00",
+                "fictional": true,
+                "journeys": {
+                    "osaka": {
+                        "transit": 23.3,
+                        "walk": 19.6,
+                        "bike": 15.6,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    },
+                    "namba": {
+                        "transit": 26.3,
+                        "walk": 21.9,
+                        "bike": 17.0,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    },
+                    "tennoji": {
+                        "transit": 43.7,
+                        "walk": 35.1,
+                        "bike": 25.6,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    135.574,
+                    34.711
+                ]
+            },
+            "properties": {
+                "id": "event-5",
+                "name": "ダミーイベント５",
+                "venue": "花博記念公園鶴見緑地",
+                "category": "自然",
+                "date": "2026-10-18",
+                "start": "12:00",
+                "end": "17:00",
+                "fictional": true,
+                "journeys": {
+                    "osaka": {
+                        "transit": 62.1,
+                        "walk": 49.1,
+                        "bike": 34.7,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    },
+                    "namba": {
+                        "transit": 71.4,
+                        "walk": 56.2,
+                        "bike": 39.3,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    },
+                    "tennoji": {
+                        "transit": 75.2,
+                        "walk": 59.1,
+                        "bike": 41.2,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    135.489,
+                    34.611
+                ]
+            },
+            "properties": {
+                "id": "event-6",
+                "name": "ダミーイベント６",
+                "venue": "住吉公園",
+                "category": "まち歩き",
+                "date": "2026-10-18",
+                "start": "13:00",
+                "end": "16:00",
+                "fictional": true,
+                "journeys": {
+                    "osaka": {
+                        "transit": 84.3,
+                        "walk": 66.0,
+                        "bike": 45.7,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    },
+                    "namba": {
+                        "transit": 53.7,
+                        "walk": 42.7,
+                        "bike": 30.5,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    },
+                    "tennoji": {
+                        "transit": 42.7,
+                        "walk": 34.4,
+                        "bike": 25.1,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    135.43,
+                    34.658
+                ]
+            },
+            "properties": {
+                "id": "event-7",
+                "name": "ダミーイベント７",
+                "venue": "天保山公園",
+                "category": "音楽",
+                "date": "2026-10-18",
+                "start": "16:00",
+                "end": "22:00",
+                "fictional": true,
+                "journeys": {
+                    "osaka": {
+                        "transit": 66.5,
+                        "walk": 52.4,
+                        "bike": 36.8,
+                        "return_status": "difficult",
+                        "return_note": "サンプル設定：終了後の帰路に注意。終電判定ではありません。"
+                    },
+                    "namba": {
+                        "transit": 56.5,
+                        "walk": 44.9,
+                        "bike": 31.9,
+                        "return_status": "difficult",
+                        "return_note": "サンプル設定：終了後の帰路に注意。終電判定ではありません。"
+                    },
+                    "tennoji": {
+                        "transit": 66.2,
+                        "walk": 52.2,
+                        "bike": 36.7,
+                        "return_status": "difficult",
+                        "return_note": "サンプル設定：終了後の帰路に注意。終電判定ではありません。"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    135.52,
+                    34.613
+                ]
+            },
+            "properties": {
+                "id": "event-8",
+                "name": "ダミーイベント８",
+                "venue": "長居公園",
+                "category": "映画",
+                "date": "2026-10-18",
+                "start": "18:00",
+                "end": "23:00",
+                "fictional": true,
+                "journeys": {
+                    "osaka": {
+                        "transit": 84.3,
+                        "walk": 66.0,
+                        "bike": 45.7,
+                        "return_status": "difficult",
+                        "return_note": "サンプル設定：終了後の帰路に注意。終電判定ではありません。"
+                    },
+                    "namba": {
+                        "transit": 53.5,
+                        "walk": 42.5,
+                        "bike": 30.4,
+                        "return_status": "difficult",
+                        "return_note": "サンプル設定：終了後の帰路に注意。終電判定ではありません。"
+                    },
+                    "tennoji": {
+                        "transit": 36.9,
+                        "walk": 29.9,
+                        "bike": 22.2,
+                        "return_status": "difficult",
+                        "return_note": "サンプル設定：終了後の帰路に注意。終電判定ではありません。"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    135.467,
+                    34.585
+                ]
+            },
+            "properties": {
+                "id": "event-9",
+                "name": "ダミーイベント９",
+                "venue": "堺旧港",
+                "category": "アート",
+                "date": "2026-10-18",
+                "start": "12:00",
+                "end": "17:00",
+                "fictional": true,
+                "journeys": {
+                    "osaka": {
+                        "transit": 107.8,
+                        "walk": 83.9,
+                        "bike": 57.2,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    },
+                    "namba": {
+                        "transit": 78.5,
+                        "walk": 61.6,
+                        "bike": 42.8,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    },
+                    "tennoji": {
+                        "transit": 69.0,
+                        "walk": 54.4,
+                        "bike": 38.1,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    135.532,
+                    34.81
+                ]
+            },
+            "properties": {
+                "id": "event-10",
+                "name": "ダミーイベント１０",
+                "venue": "万博記念公園",
+                "category": "自然",
+                "date": "2026-10-18",
+                "start": "11:00",
+                "end": "16:00",
+                "fictional": true,
+                "journeys": {
+                    "osaka": {
+                        "transit": 100.9,
+                        "walk": 78.6,
+                        "bike": 53.8,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    },
+                    "namba": {
+                        "transit": 130.6,
+                        "walk": 101.2,
+                        "bike": 68.5,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    },
+                    "tennoji": {
+                        "transit": 144.0,
+                        "walk": 111.4,
+                        "bike": 75.1,
+                        "return_status": "ok",
+                        "return_note": "サンプル設定：帰路可。実際の終電・運行は未確認です。"
+                    }
+                }
+            }
+        }
+    ]
+}

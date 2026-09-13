@@ -8,6 +8,8 @@
 
 [公共交通オープンデータチャレンジ2026](https://challenge2026.odpt.org/)に向けたアプリです。
 
+<span style="color: red;">2026年 9月 13日 時点で、開発中です。特に、イベント情報は架空の内容になっています。ご留意ください</span> 
+
 ## 使い方
 
 1. 太い鉄道路線上の大きな駅マークをクリックし、利用する駅を1つ以上選びます。駅名一覧からも選べます。
@@ -85,7 +87,7 @@ WebアプリにはPythonパッケージは不要です。背景地図のOpenStre
 {"osaka": {"out": 12, "back": 14, "walk_out": 35, "walk_back": 38}}
 ```
 
-`out` は駅から場所への自転車時間、`back` は場所から駅への自転車時間、`walk_out` / `walk_back` は徒歩です。イベントのpropertiesには `id, name, venue, category, date, start, end, fictional, access` を保存します。
+`out` は駅から場所への自転車時間、`back` は場所から駅への自転車時間、`walk_out` / `walk_back` は徒歩です。イベントのpropertiesには `id, name, venue, category, date, start, end, fictional, access` を保存します。イベントの情報ページは任意の `url` にHTTPまたはHTTPSの絶対URLを設定します。ポップアップにURLが表示され、別タブで開きます。未設定・不正なURLは表示しません。配信データは `public/data/station_events.geojson` です。再生成するイベントのURLは入力元の `public/data/events.geojson` にも登録します。
 
 距離換算データの再生成にはPythonを使用します。データ処理用の仮想環境を作成します。
 
