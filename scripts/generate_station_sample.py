@@ -130,15 +130,18 @@ def main():
     # only needed by precompute.py for real road-network data.
     cells=[]
     save('station_access.json',dict(schema_version=2,sample=True,model=dict(kind='radial-demo',walk_kmh=4.5,bike_kmh=15),cell_size=[1/182,1/222],max_minutes=30,cells=cells))
-    previous=json.loads((OUT/'events.geojson').read_text())
+    published=OUT/'station_events.geojson'
+    current=json.loads(published.read_text()) if published.exists() else {}
+    real=bool(current.get('source',{}).get('url')=='https://osaka-info.jp/event/')
+    previous=current if real else json.loads((OUT/'events.geojson').read_text())
     features=[]
     for e in previous['features']:
         p=dict(e['properties']); p.pop('journeys',None)
         p['access']=access(*e['geometry']['coordinates'],stations)
         features.append(dict(type='Feature',geometry=e['geometry'],properties=p))
-    for id,name,venue,x,y in [('kobe-event','港のアートマルシェ','メリケンパーク',135.188,34.682),('kyoto-event','梅小路 手づくり広場','梅小路公園',135.747,34.987),('nara-event','奈良 緑のクラフト市','奈良公園',135.843,34.685)]:
+    for id,name,venue,x,y in ([] if real else [('kobe-event','港のアートマルシェ','メリケンパーク',135.188,34.682),('kyoto-event','梅小路 手づくり広場','梅小路公園',135.747,34.987),('nara-event','奈良 緑のクラフト市','奈良公園',135.843,34.685)]):
         features.append(dict(type='Feature',geometry=dict(type='Point',coordinates=[x,y]),properties=dict(id=id,name=name,venue=venue,category='マーケット',date='2026-10-18',start='11:00',end='17:00',fictional=True,access=access(x,y,stations))))
-    save('station_events.geojson',dict(type='FeatureCollection',features=features))
+    save('station_events.geojson',{**previous,'type':'FeatureCollection','features':features})
     print(f'Wrote {len(stations)} stations, {len(cells)} cells, {len(features)} events')
 
 if __name__=='__main__': main()

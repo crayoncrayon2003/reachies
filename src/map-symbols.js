@@ -6,6 +6,10 @@ export const EVENT_SYMBOLS = {
   '自然': { label: '自然', paths: '<path d="M20 3C8 2 2 7 5 15c5 7 15 2 15-12ZM3 22 16 8M8 17l-1-6m4 3 6 1"/>' },
   '体験': { label: '体験', paths: '<path d="M14 4a6 6 0 0 0-7 8l-5 6 4 4 6-6a6 6 0 0 0 8-7l-4 4-4-4 4-4Z"/>' },
   'まち歩き': { label: 'まち歩き', paths: '<circle cx="13" cy="3" r="2"/><path d="m10 22 2-7-3-4 2-5 4 1 2 5 4 1M11 7 7 9l-2 5m7 1 5 7"/>' },
+  'グルメ': {label:'グルメ',paths:'<path d="M5 3v6m3-6v6m-6-6v6q3 4 6 0M5 12v9M17 3v18m0-18q-6 8 0 9"/>'},
+  '季節': {label:'季節',paths:'<circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3M4 4l2 2m12 12 2 2M4 20l2-2M18 6l2-2"/>'},
+  '伝統行事': {label:'伝統行事',paths:'<path d="M3 4q9 4 18 0M3 9h18M7 6v16m10-16v16M12 6v3"/>'},
+  'スポーツ': {label:'スポーツ',paths:'<circle cx="12" cy="12" r="10"/><path d="m12 7 5 4-2 6H9l-2-6 5-4ZM12 2v5m10 4-5 0M17 21l-2-4M7 21l2-4M2 11h5"/>'},
   'アート': { label: 'アート', paths: '<path d="M12 2a10 10 0 1 0 0 20c4 0-2-5 2-6h3c7 0 6-14-5-14Z"/><circle cx="7" cy="8" r="1"/><circle cx="12" cy="6" r="1"/><circle cx="17" cy="9" r="1"/><circle cx="6" cy="14" r="1"/>' },
 };
 const fallback = { label: 'その他', paths: '<path d="m12 2 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1Z"/>' };

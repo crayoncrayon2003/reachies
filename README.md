@@ -8,7 +8,7 @@
 
 [公共交通オープンデータチャレンジ2026](https://challenge2026.odpt.org/)に向けたアプリです。
 
-<span style="color: red;">2026年 9月 13日 時点で、開発中です。特に、イベント情報は架空の内容になっています。ご留意ください。</span>
+<span style="color: red;">2026年 9月 13日 時点で、開発中です。イベントはOSAKA-INFOの掲載情報を使用し、移動時間は直線距離から推定します。</span>
 
 ## 使い方
 
@@ -21,7 +21,7 @@
 
 関西2府4県と周辺（福井・三重方面等）の180路線グループを、国土数値情報2025年度版の線路形状で表示します。地方私鉄、地下鉄、新交通、ケーブル、新幹線も含みます。「関西全体」で全体へ移動できます。表示範囲内の鉄道2,041駅とバス停32,320地点を選択できます。地方駅も丸で表示し、駅・バス停を到達圏の起点と旅程の端点・経由地点に使用できます。到達時間は直線距離と移動速度から推定します。収録状況は [docs/network-coverage.md](docs/network-coverage.md) を参照してください。
 
-**鉄道路線と駅の位置は国土数値情報2025年度版に基づきます。収録イベントは架空で、所要時間は直線距離に基づく推定です。到達圏は実道路のアイソクロンではありません。**路線・会社をまたぐ同一駅は1つの丸に統合しています。大阪・梅田、なんば、三宮も乗換拠点としてまとめます。駅一覧と旅程の候補も同じ統合地点を使います。
+**鉄道路線と駅の位置は国土数値情報2025年度版に基づきます。イベントはOSAKA-INFOの掲載情報で、所要時間は直線距離に基づく推定です。到達圏は実道路のアイソクロンではありません。**路線・会社をまたぐ同一駅は1つの丸に統合しています。大阪・梅田、なんば、三宮も乗換拠点としてまとめます。駅一覧と旅程の候補も同じ統合地点を使います。
 
 計算方法と出典はアプリ内の「データについて」でも確認できます。
 
@@ -192,3 +192,21 @@ GitHub PagesではリポジトリのSettings → Pages → Sourceを **GitHub Ac
 本プロジェクトのコードは [MIT License](LICENSE) です。LeafletはBSD-2-Clause、ViteはMITです。収録イベントは、外部データには提供元の利用条件が適用されます。
 
 路線の接続・駅名の参考：[近鉄](https://www.kintetsu.co.jp/station/)、[阪急](https://odekake.hankyu.co.jp/routemap)、[阪神](https://www.hanshin.co.jp/station/?vm=r)、[京阪](https://www.keihan.co.jp/traffic/station/)。座標・線形は上記の国土数値情報に基づきます。
+
+## イベント情報の更新
+
+[OSAKA-INFO（大阪観光局）](https://osaka-info.jp/event/) の公開一覧と詳細ページから、開催終了日を過ぎていないイベントを取得します。一覧ページ・一覧JSON・各詳細ページの取得前には3秒待機し、詳細ページは並列取得しません。会場名・掲載地図の一意な座標を確認できる地点のみ収録し、中止・日本語未公開・対象範囲外の情報は取り込みません。複数会場などで地点を確定できない情報は `docs/events-import-report.json` に理由を記録します。
+
+開催期間は初日から最終日までの範囲です。休催日や個別の開催日はポップアップのスケジュールと掲載元で確認してください。時刻は推測して補いません。各イベントに情報ページURL・取得日時・座標の出典を保存します。
+
+```bash
+npm ci
+npx playwright install chromium
+npm run update:events
+```
+
+インストール済みのChromeを使う場合は `CHROME_PATH=/usr/bin/google-chrome npm run update:events` でも実行できます。取得が失敗した場合や位置を確定できるイベントが0件の場合は既存データを保持し、更新処理を失敗として終了します。
+
+GitHub Actionsは毎日06:17（日本時間、UTC 21:17）に取得・テスト・ビルド・Pages公開を実行します。Actionsの「Deploy GitHub Pages」から手動更新も可能です。更新結果をリポジトリに保存し、同じワークフロー内で公開するため、更新コミットからの追加トリガーには依存しません。設定を `main` にプッシュすると定期実行が有効になります。
+
+公開リポジトリの標準GitHub-hosted runnerを利用します。定期実行は遅延する場合があり、公開リポジトリで60日間活動がない場合は停止することがあります。料金・実行条件は [GitHub Actionsの料金](https://docs.github.com/en/billing/concepts/product-billing/github-actions) と [scheduleの仕様](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule) を参照してください。

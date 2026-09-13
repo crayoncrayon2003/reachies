@@ -1,4 +1,7 @@
 import { test, expect } from '@playwright/test';
+import {readFileSync} from 'node:fs';
+const eventFixture=readFileSync(new URL('../fixtures/station_events.geojson',import.meta.url),'utf8');
+test.beforeEach(async({page})=>{await page.route('**/data/station_events.geojson',r=>r.fulfill({contentType:'application/json',body:eventFixture}));});
 async function ready(page){await page.goto('/',{waitUntil:'domcontentloaded'});await expect(page.locator('#budget')).toBeEnabled();}
 test('station selection synchronizes map and list and evaluates outbound reach',async({page})=>{
   const errors=[];page.on('pageerror',e=>errors.push(e.message));await ready(page);
@@ -52,7 +55,7 @@ test('missing station accessibility data is visible and controls stay disabled',
   await expect(page.getByRole('alert')).toContainText('データを読み込めませんでした');await expect(page.locator('#budget')).toBeDisabled();
 });
 test('repository subpath supports static data files',async({page})=>{
-  await page.route('**/PublicTransportationReachMap/**',async route=>{const url=new URL(route.request().url());url.pathname=url.pathname.replace('/PublicTransportationReachMap/','/');await route.fulfill({response:await route.fetch({url:url.toString()})});});
+  await page.route('**/PublicTransportationReachMap/**',async route=>{const url=new URL(route.request().url());if(url.pathname.endsWith('/station_events.geojson'))return route.fulfill({contentType:'application/json',body:eventFixture});url.pathname=url.pathname.replace('/PublicTransportationReachMap/','/');await route.fulfill({response:await route.fetch({url:url.toString()})});});
   await page.goto('/PublicTransportationReachMap/',{waitUntil:'domcontentloaded'});await expect(page.locator('#budget')).toBeEnabled();await expect(page.locator('.event-card')).toHaveCount(13);
 });
 
@@ -157,8 +160,8 @@ test('selected Honmachi and Yodoyabashi enclose events added from the map',async
  await page.locator('summary').filter({hasText:'駅名から選ぶ'}).click();
  await page.locator('[data-station=hommachi]').check();await page.locator('[data-station=yodoyabashi]').check();
  // Selected stations provide endpoints for the ordered event visits.
- for(const name of ['靱公園 青空ワークショップ','中之島 リバーサイドマーケット']){
-  await page.locator('.event-card').filter({hasText:name}).click();await page.locator('.leaflet-popup').filter({has:page.getByText(name,{exact:true})}).getByRole('button',{name:'旅程に追加',exact:true}).click();
+ for(const name of ['ダミーイベント４','ダミーイベント１']){
+  await page.locator('.event-card').filter({has:page.getByText(name,{exact:true})}).click();await page.locator('.leaflet-popup').filter({has:page.getByText(name,{exact:true})}).getByRole('button',{name:'旅程に追加',exact:true}).click();
  }
  await expect(page.locator('#journey-start')).toHaveValue('station:hommachi');await expect(page.locator('#journey-end')).toHaveValue('station:yodoyabashi');
  await expect(page.locator('.journey-stop')).toHaveCount(4);await expect(page.locator('.journey-segment')).toHaveCount(3);
@@ -167,7 +170,7 @@ test('selected Honmachi and Yodoyabashi enclose events added from the map',async
  await page.locator('#journey-fit').click();await page.waitForTimeout(350);
  await page.screenshot({path:'test-results/selected-stations-journey.png',fullPage:true});
  await page.locator('#journey-end').selectOption('station:hommachi');await expect(page.locator('.journey-stop-title strong').last()).toHaveText('4. 到着：本町');
- await page.getByRole('button',{name:'2番目を下へ',exact:true}).click();await expect(page.locator('.journey-stop-title strong').nth(1)).toContainText('中之島');
+ await page.getByRole('button',{name:'2番目を下へ',exact:true}).click();await expect(page.locator('.journey-stop-title strong').nth(1)).toContainText('ダミーイベント１');
  await page.locator('#journey-point').selectOption('station:osaka');await page.locator('#journey-add').click();
  await expect(page.locator('.journey-stop-title strong').nth(3)).toContainText('経由駅：大阪');await expect(page.locator('.journey-segment')).toHaveCount(4);
  await page.getByLabel('区間1の移動手段').selectOption('walk');await expect(page.getByLabel('区間1の移動手段')).toHaveValue('walk');
@@ -179,7 +182,7 @@ test('selected Honmachi and Yodoyabashi enclose events added from the map',async
 });
 test('one selected station automatically supplies both endpoints for event additions',async({page})=>{
  await ready(page);await page.locator('#clear').click();await page.locator('summary').filter({hasText:'駅名から選ぶ'}).click();await page.locator('[data-station=hommachi]').check();
- await page.locator('.event-card').filter({hasText:'靱公園 青空ワークショップ'}).click();await page.locator('.leaflet-popup').filter({hasText:'靱公園 青空ワークショップ'}).getByRole('button',{name:'旅程に追加',exact:true}).click();
+ await page.locator('.event-card').filter({has:page.getByText('ダミーイベント４',{exact:true})}).click();await page.locator('.leaflet-popup').filter({hasText:'ダミーイベント４'}).getByRole('button',{name:'旅程に追加',exact:true}).click();
  await expect(page.locator('#journey-start')).toHaveValue('station:hommachi');await expect(page.locator('#journey-end')).toHaveValue('station:hommachi');await expect(page.locator('.journey-segment')).toHaveCount(2);
 });
 
@@ -204,7 +207,7 @@ test('bus routes are on by default and an actual bus stop supplies journey endpo
  await expect(page.locator(`[data-station-id="${id}"]`)).toHaveCount(1);
  await page.locator(`[data-station-id="${id}"]`).click();await expect(page.locator(`[data-station-id="${id}"]`)).toHaveAttribute('aria-pressed','false');
  await page.locator(`[data-station-id="${id}"]`).click();await expect(page.locator(`[data-station-id="${id}"]`)).toHaveAttribute('aria-pressed','true');
- await page.locator('.event-card').filter({hasText:'靱公園 青空ワークショップ'}).click();await page.locator('.leaflet-popup').filter({hasText:'靱公園 青空ワークショップ'}).getByRole('button',{name:'旅程に追加',exact:true}).click();
+ await page.locator('.event-card').filter({has:page.getByText('ダミーイベント４',{exact:true})}).click();await page.locator('.leaflet-popup').filter({hasText:'ダミーイベント４'}).getByRole('button',{name:'旅程に追加',exact:true}).click();
  await expect(page.locator('#journey-start')).toHaveValue(`station:${id}`);await expect(page.locator('#journey-end')).toHaveValue(`station:${id}`);
  await expect(page.locator('.journey-segment')).toHaveCount(2);await expect(page.locator('#journey-summary')).toContainText('各区間が時間上限内（推定）');
  await page.locator('#journey-fit').click();await page.waitForTimeout(350);await page.screenshot({path:'test-results/bus-journey.png',fullPage:true});
@@ -219,13 +222,13 @@ test('every displayed rail route uses its company color',async({page})=>{
 
 test('event popup chooses an insertion gap and station picker can replace endpoints',async({page})=>{
  await ready(page);
- for(const name of ['靱公園 青空ワークショップ','中之島 リバーサイドマーケット']){
-  await page.locator('.event-card').filter({hasText:name}).click();
+ for(const name of ['ダミーイベント４','ダミーイベント１']){
+  await page.locator('.event-card').filter({has:page.getByText(name,{exact:true})}).click();
   const popup=page.locator('.leaflet-popup').filter({has:page.getByText(name,{exact:true})});
-  if(name.startsWith('中之島'))await popup.getByLabel('旅程への追加位置').selectOption('via:0');
+  if(name.startsWith('ダミーイベント１'))await popup.getByLabel('旅程への追加位置').selectOption('via:0');
   await popup.getByRole('button',{name:'旅程に追加',exact:true}).click();
  }
- await expect(page.locator('.journey-stop-title strong').nth(1)).toContainText('中之島');
+ await expect(page.locator('.journey-stop-title strong').nth(1)).toContainText('ダミーイベント１');
  await expect(page.locator('.journey-stop-title strong').nth(2)).toContainText('靱公園');
  await expect(page.locator('.journey-segment')).toHaveCount(3);
  await page.locator('#journey-point').selectOption('station:namba');
@@ -242,8 +245,8 @@ test('event popup chooses an insertion gap and station picker can replace endpoi
 
 test('event popup removes the chosen visit, reconnects neighbors and updates after sidebar edits',async({page})=>{
  await ready(page);
- const first='靱公園 青空ワークショップ',second='中之島 リバーサイドマーケット';
- const open=async name=>{await page.locator('.event-card').filter({hasText:name}).click();return page.locator('.leaflet-popup').filter({has:page.getByText(name,{exact:true})});};
+ const first='ダミーイベント４',second='ダミーイベント１';
+ const open=async name=>{await page.locator('.event-card').filter({has:page.getByText(name,{exact:true})}).click();return page.locator('.leaflet-popup').filter({has:page.getByText(name,{exact:true})});};
  let popup=await open(first);await expect(popup.getByRole('button',{name:'旅程から削除',exact:true})).toBeDisabled();
  for(const name of [first,second,first]){popup=await open(name);await popup.getByRole('button',{name:'旅程に追加',exact:true}).click();}
  popup=await open(first);
@@ -261,7 +264,7 @@ test('event popup removes the chosen visit, reconnects neighbors and updates aft
  await page.getByRole('button',{name:'2番目を削除',exact:true}).click();
  await expect(popup.getByRole('button',{name:'旅程から削除',exact:true})).toBeDisabled();
  await expect(page.locator('.journey-stop')).toHaveCount(2);
- await expect(page.locator('#journey-start')).toHaveValue('station:osaka');await expect(page.locator('#journey-end')).toHaveValue('station:morinomiya');
+ await expect(page.locator('#journey-start')).toHaveValue('station:osaka');await expect(page.locator('#journey-end')).toHaveValue('station:kyobashi');
  await expect(page.locator('.event-card')).toHaveCount(13);
 });
 
@@ -270,7 +273,7 @@ test('insertion gaps use numbers and station sizes depend only on distinct route
  await expect(page.locator('#journey-position option[value=append]')).toHaveText('1と2の間');
  await page.locator('#journey-point').selectOption('event:event-1');await page.locator('#journey-add').click();
  await expect(page.locator('#journey-position option[value="via:0"]')).toHaveText('1と2の間');await expect(page.locator('#journey-position option[value=append]')).toHaveText('2と3の間');
- await page.locator('.event-card').filter({hasText:'靱公園 青空ワークショップ'}).click();
+ await page.locator('.event-card').filter({has:page.getByText('ダミーイベント４',{exact:true})}).click();
  await expect(page.getByLabel('旅程への追加位置').locator('option')).toHaveText(['1と2の間','2と3の間']);
  const sizes=await page.locator('.station-dot').evaluateAll(buttons=>buttons.map(b=>({id:b.dataset.stationId,size:Number(b.dataset.symbolSize),width:b.querySelector('.station-circle').getBoundingClientRect().width})));
  expect(new Set(sizes.map(s=>s.width))).toEqual(new Set([14,20]));
@@ -315,7 +318,7 @@ test('station popup inserts at chosen gaps and changes endpoints only explicitly
  await expect(page.locator('#journey-end')).toHaveValue(B);
  await expect(page.locator('.journey-segment')).toHaveCount(2);
  await page.getByLabel('旅程への追加位置').selectOption('append');await page.getByRole('button',{name:'旅程に追加',exact:true}).click();await expect(page.locator('.leaflet-popup')).toHaveCount(0);
- await expect(page.locator('.journey-stop-title strong')).toHaveText(['1. 出発：大阪・梅田','2. イベント：中之島 リバーサイドマーケット','3. 経由駅：森ノ宮','4. 到着：京橋']);
+ await expect(page.locator('.journey-stop-title strong')).toHaveText(['1. 出発：大阪・梅田','2. イベント：ダミーイベント１','3. 経由駅：森ノ宮','4. 到着：京橋']);
  await page.getByLabel('区間3の移動手段',{exact:true}).selectOption('transit');
  const rect=await page.locator('[data-station-id=temma]').boundingBox();await page.mouse.move(rect.x+16,rect.y+16);await page.mouse.wheel(0,-360);await page.waitForTimeout(650);
  await page.locator('[data-station-id=temma]').click();
@@ -381,12 +384,12 @@ test('bus routes repaint after repeated hide and show without moving the map',as
 
 for(const url of ['https://example.com/events/market?day=18',null,'javascript:alert(1)'])test(`event popup source URL: ${url}`,async({page})=>{
  await page.route('**/data/station_events.geojson',async route=>{
-  const response=await route.fetch(),data=await response.json();
+  const data=JSON.parse(eventFixture);
   data.features.find(f=>f.properties.id==='event-1').properties.url=url;
-  await route.fulfill({response,json:data});
+  await route.fulfill({json:data});
  });
  await ready(page);
- await page.locator('.event-card').filter({hasText:'中之島 リバーサイドマーケット'}).click();
+ await page.locator('.event-card').filter({has:page.getByText('ダミーイベント１',{exact:true})}).click();
  const popup=page.locator('.leaflet-popup'),link=popup.locator('.event-source a');
  if(url?.startsWith('https:')){
   await expect(link).toHaveText(url);await expect(link).toHaveAttribute('href',url);
@@ -396,4 +399,16 @@ for(const url of ['https://example.com/events/market?day=18',null,'javascript:al
   await expect(tab).toHaveURL(url);await tab.close();
  }else await expect(link).toHaveCount(0);
  await expect(popup.getByRole('button',{name:'旅程に追加',exact:true})).toBeVisible();
+});
+
+test('published events show OSAKA-INFO sources and date ranges without invented times',async({page})=>{
+ await page.unroute('**/data/station_events.geojson');
+ const data=JSON.parse(readFileSync(new URL('../../public/data/station_events.geojson',import.meta.url),'utf8'));
+ await ready(page);await expect(page.locator('.event-card')).toHaveCount(data.features.length);
+ const item=data.features[0].properties;
+ await page.locator('.event-card').filter({has:page.getByText(item.name,{exact:true})}).click();
+ const popup=page.locator('.leaflet-popup');await expect(popup.locator('.event-source a')).toHaveAttribute('href',item.url);
+ await expect(popup).toContainText(item.date);await expect(popup).toContainText(item.end_date);
+ await expect(popup).not.toContainText('null');await expect(popup).not.toContainText('undefined');
+ await page.screenshot({path:'test-results/osaka-info-event.png',fullPage:true});
 });

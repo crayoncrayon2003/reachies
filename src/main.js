@@ -28,6 +28,8 @@ let railway, surface, events, busStops, stationIndex, selected = new Set(), acti
 const state = () => ({ budget:Number($('budget').value), mode:$('travel-mode').value, through:false });
 const station = id => stationIndex.get(id);
 const stationName = id => station(id)?.name || id;
+const eventDates=p=>p.end_date&&p.end_date!==p.date?`${p.date} ～ ${p.end_date}`:p.date;
+const eventHours=p=>p.start&&p.end?`${p.start}–${p.end}`:'';
 const pairText = p => p.to ? `${stationName(p.from)} → イベント → ${stationName(p.to)}` : `${stationName(p.from)} → イベント`;
 const categoryLabel = {walk:'徒歩で到達可能',bike:'自転車で到達可能',oneWay:'片道のみ可',outside:'選択条件の範囲外'};
 async function read(name) { const r = await fetch(`${import.meta.env.BASE_URL}data/${name}`); if (!r.ok) throw Error(`${name}: HTTP ${r.status}`); return r.json(); }
@@ -91,7 +93,8 @@ function render() {
   $('list-count').textContent=`${assessed.length}件`; $('events').replaceChildren();
   for(const {event,result} of assessed) {
     const p=event.properties;
-    const popup=document.createElement('div'); popup.append(text('strong',p.name),text('p',`${p.venue} · ${p.date} ${p.start}–${p.end}`),text('p',categoryLabel[result.category]));
+    const popup=document.createElement('div'); popup.append(text('strong',p.name),text('p',`${p.venue} · ${eventDates(p)} ${eventHours(p)}`),text('p',categoryLabel[result.category]));
+    if(p.schedule)popup.append(text('p',p.schedule,'event-schedule'));
     if(typeof p.url==='string'&&p.url.trim()){
       try{
         const url=new URL(p.url.trim());
@@ -110,7 +113,7 @@ function render() {
     marker.on('popupopen',()=>insertion.refresh());
     const open=()=>{activeEvent=p.id;showTrip(event,result);}; marker.on('click',open);
     const card=text('button','','event-card');card.type='button';card.style.setProperty('--category',COLORS[result.category]);
-    const category=text('span',`${p.category} · ${p.start}–${p.end}`,'event-category');
+    const category=text('span',`${p.category} · ${eventDates(p)} ${eventHours(p)}`,'event-category');
     const categoryIcon=text('span','','category-icon');categoryIcon.innerHTML=iconSvg(p.category);category.prepend(categoryIcon);
     card.append(category,text('strong',p.name),text('span',categoryLabel[result.category],'event-result'));
     if(result.journey) card.append(text('span',pairText(result.journey),'event-detail'),text('span',`${result.journey.outbound.toFixed(1)}分${result.journey.to?` + ${result.journey.inbound.toFixed(1)}分`:''}`,'event-time'));
@@ -245,7 +248,7 @@ async function init() {
   $('coverage-summary').textContent=`鉄道 ${railway.lines.features.length}路線グループ · ${railway.stations.length-busStops.stops.length}駅・${busStops.stops.length}バス停`;
   const realRails = railway.geometry_source === 'mlit-n02-2025';
   const railDescription = realRails ? '鉄道：国土数値情報2025年度' : '鉄道：概略図';
-  const eventDescription = events.features.some(e => e.properties.fictional) ? 'イベントは架空' : 'イベント出典はREADME参照';
+  const eventDescription = events.features.some(e => e.properties.fictional) ? 'イベントは架空' : `イベント：${events.source?.name||'出典はREADME参照'}${events.source?.fetched_at?'（取得：'+events.source.fetched_at.slice(0,10)+'）':''}`;
   if(!surface.sample)$('reach-method').textContent='道路ネットワークの事前計算値を格子で表示しています。選択した移動手段と時間で到達可能な格子を赤色で表示します。';
   const reachDescription = surface.sample ? '到達圏・移動時間は直線距離に基づく推定' : '到達圏は道路ネットワークの事前計算';
   document.querySelector('.sample').textContent = `${railDescription}。${reachDescription}。${eventDescription}。`;

@@ -1,0 +1,36 @@
+{
+  "source": "https://osaka-info.jp/event/",
+  "feed": "https://osaka-info.jp/event/article.json",
+  "fetched_at": "2026-09-13T05:27:23.764Z",
+  "as_of": "2026-09-13",
+  "excluded": [
+    {
+      "id": 11335,
+      "url": "https://osaka-info.jp/event/minami-wheel2026/",
+      "reason": "会場の一意な掲載座標がない、または対象範囲外"
+    },
+    {
+      "id": 11289,
+      "url": "https://osaka-info.jp/event/mozuyan-stamprally/",
+      "reason": "会場の一意な掲載座標がない、または対象範囲外"
+    },
+    {
+      "id": 11314,
+      "url": "https://osaka-info.jp/event/osaka-monorail-nazo/",
+      "reason": "会場の一意な掲載座標がない、または対象範囲外"
+    },
+    {
+      "id": 11147,
+      "url": "https://osaka-info.jp/event/Nipponsangoku-stamprally/",
+      "reason": "会場の一意な掲載座標がない、または対象範囲外"
+    },
+    {
+      "id": 11169,
+      "url": "https://osaka-info.jp/event/kishiwadadanjirimaturi/",
+      "reason": "会場の一意な掲載座標がない、または対象範囲外"
+    }
+  ],
+  "listed": 71,
+  "candidates": 47,
+  "imported": 42
+}
