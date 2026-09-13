@@ -25,7 +25,7 @@ def main():
     if len(ids)!=len(set(ids)) or any(not isinstance(id,str) or id.startswith('cell-') for id in ids):
         parser.error('イベントIDは重複のない文字列（cell-以外で開始）にしてください')
     if len({s['id'] for s in stations}) != len(stations): parser.error('駅IDが重複しています')
-    # Deferred imports let --help and input validation work in the supplied env.
+    # Load routing dependencies after CLI parsing and input validation.
     import geopandas as gpd
     import r5py
     from shapely.geometry import Point

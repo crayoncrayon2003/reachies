@@ -1,7 +1,7 @@
 import L from 'leaflet';
 import { radialReach } from './travel.js';
 import { reachColor } from './map-symbols.js';
-// A single time field, not overlapping opaque station circles or a 500m cell mask.
+// Render one continuous travel-time field across all selected origins.
 export function radialReachLayer(stations,budget,through,mode='bike'){
   const Layer=L.GridLayer.extend({
     createTile(coords){

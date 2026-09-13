@@ -42,7 +42,7 @@ test('real-data journeys retain directed costs and never invent unknown event-to
  assert.equal(evaluateItinerary([e,{...e,lat:35}],['bike'],{sample:false,budget:20}).legs[0].status,'unknown');
 });
 
-test('all five requested patterns have every adjacent leg and public-transport endpoints',()=>{
+test('station and event sequences have adjacent legs and public-transport endpoints',()=>{
  const b={...north(600),sourceId:'b'},c={...north(1200),sourceId:'c',type:'bus_stop'};
  const e={...north(200),type:'event'},f={...north(400),type:'event'};
  for(const stops of [[a,e,a],[a,e,b],[a,e,f,a],[a,e,f,b],[a,e,b,f,c]]){

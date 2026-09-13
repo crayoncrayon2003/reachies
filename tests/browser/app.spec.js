@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 async function ready(page){await page.goto('/',{waitUntil:'domcontentloaded'});await expect(page.locator('#budget')).toBeEnabled();}
-test('stations can be selected from map and list; empty and single-station through areas are empty',async({page})=>{
+test('station selection synchronizes map and list and evaluates outbound reach',async({page})=>{
   const errors=[];page.on('pageerror',e=>errors.push(e.message));await ready(page);
   expect(await page.locator('.station-dot').count()).toBeGreaterThan(30);
   await expect(page.locator('[data-station-id=osaka]')).toHaveCount(1);
@@ -21,7 +21,7 @@ test('stations can be selected from map and list; empty and single-station throu
   await expect(page.getByRole('button',{name:'大阪・梅田駅を選択',exact:true})).toHaveAttribute('aria-pressed','false');
   expect(errors).toEqual([]);
 });
-test('mode and time updates agree with independent pair enumeration; event shows station A and B',async({page})=>{
+test('mode and time updates match event eligibility and candidate itinerary',async({page})=>{
   await ready(page);
   for(const mode of ['bike','walk'])for(const scope of ['outbound'])for(const budget of [5,10,20,30]){
     await page.locator('#travel-mode').selectOption(mode);await page.locator('#budget').fill(String(budget));
@@ -51,13 +51,13 @@ test('missing station accessibility data is visible and controls stay disabled',
   await page.route('**/data/station_access.json',r=>r.fulfill({status:404,body:'missing'}));await page.goto('/',{waitUntil:'domcontentloaded'});
   await expect(page.getByRole('alert')).toContainText('データを読み込めませんでした');await expect(page.locator('#budget')).toBeDisabled();
 });
-test('repository subpath supports all new static data files',async({page})=>{
+test('repository subpath supports static data files',async({page})=>{
   await page.route('**/PublicTransportationReachMap/**',async route=>{const url=new URL(route.request().url());url.pathname=url.pathname.replace('/PublicTransportationReachMap/','/');await route.fulfill({response:await route.fetch({url:url.toString()})});});
   await page.goto('/PublicTransportationReachMap/',{waitUntil:'domcontentloaded'});await expect(page.locator('#budget')).toBeEnabled();await expect(page.locator('.event-card')).toHaveCount(13);
 });
 
 
-test('event types use pictogram pins and all requested railway operators are available',async({page})=>{
+test('event types use pictogram pins and major railway operators are available',async({page})=>{
   await ready(page);
   await expect(page.locator('.event-pin')).toHaveCount(13);
   await expect(page.locator('.event-pin svg')).toHaveCount(13);
@@ -114,7 +114,7 @@ test('station click toggles reach selection and offers journey insertion positio
  await expect(page.locator('.leaflet-popup')).toHaveCount(1);
 });
 
-test('walking overlay is absent and equal travel times produce smaller walking areas',async({page})=>{
+test('walking and cycling reach areas reflect the selected speed',async({page})=>{
  await ready(page);await page.locator('#clear').click();await page.locator('summary').filter({hasText:'駅名から選ぶ'}).click();await page.locator('[data-station=morinomiya]').check();
  await expect(page.locator('#show-walk')).toHaveCount(0);await expect(page.locator('.walk-radius')).toHaveCount(0);
  const painted=()=>page.locator('.radial-reach canvas').evaluateAll(canvases=>canvases.reduce((sum,c)=>{const data=c.getContext('2d').getImageData(0,0,256,256).data;for(let i=3;i<data.length;i+=4)if(data[i])sum++;return sum;},0));
@@ -156,7 +156,7 @@ test('selected Honmachi and Yodoyabashi enclose events added from the map',async
  await ready(page);await page.locator('#clear').click();
  await page.locator('summary').filter({hasText:'駅名から選ぶ'}).click();
  await page.locator('[data-station=hommachi]').check();await page.locator('[data-station=yodoyabashi]').check();
- // This reproduces the reported workflow: select stations, then add two events.
+ // Selected stations provide endpoints for the ordered event visits.
  for(const name of ['靱公園 青空ワークショップ','中之島 リバーサイドマーケット']){
   await page.locator('.event-card').filter({hasText:name}).click();await page.locator('.leaflet-popup').filter({has:page.getByText(name,{exact:true})}).getByRole('button',{name:'旅程に追加',exact:true}).click();
  }
