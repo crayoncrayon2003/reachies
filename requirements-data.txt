@@ -1,0 +1,2 @@
+# Convert official JGD2011 railway coordinates to WGS84.
+pyproj>=3.7,<4

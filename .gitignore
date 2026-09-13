@@ -1,0 +1,17 @@
+env/
+node_modules/
+dist/
+__pycache__/
+.pytest_cache/
+test-results/
+playwright-report/
+inputs/
+*.pbf
+*.zip
+
+# Local credentials and agent configuration
+.env
+.env.*
+!.env.example
+.agents/
+.codex/

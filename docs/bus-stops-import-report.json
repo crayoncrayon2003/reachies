@@ -1,0 +1,53 @@
+{
+  "source_record_count": 36619,
+  "stop_count": 32320,
+  "provenance": {
+    "url": "https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P11-2022.html",
+    "reference_year": 2022,
+    "license": "CC BY 4.0",
+    "retrieved": "2026-09-12",
+    "bbox": [
+      134.15,
+      33.35,
+      136.9,
+      35.85
+    ],
+    "sources": [
+      {
+        "file": "P11-22_18_GML.zip",
+        "sha256": "39ea258f6b370f3ae419e208a0e8f16afd770c744f7b72ba1248f700ad66b185"
+      },
+      {
+        "file": "P11-22_24_GML.zip",
+        "sha256": "ad05eb3a722c8747d64e40979b00bb57459aed48c5f4ed04f5869058bbaa67e8"
+      },
+      {
+        "file": "P11-22_25_GML.zip",
+        "sha256": "cf55837dba777610c4c62280d6c48a5b14f903e9aeacfd2812623d453e409ea4"
+      },
+      {
+        "file": "P11-22_26_GML.zip",
+        "sha256": "90c1162b0a0c45eba5aed9de3c676a86efaf7c5afcb5ad95ac3b314c95d4858a"
+      },
+      {
+        "file": "P11-22_27_GML.zip",
+        "sha256": "3cdb3eec984438c9d5408d5a8cb45692ea9d4593943c9dcae03f753ac7a5e64d"
+      },
+      {
+        "file": "P11-22_28_GML.zip",
+        "sha256": "d084ac2571a26b75a6692eb64990a71c52d2128fecbd5262c3922a894e7d3d70"
+      },
+      {
+        "file": "P11-22_29_GML.zip",
+        "sha256": "32001291db1675b3faf8aa54254a16b57427eaef277164a9d333431d5a5b0c09"
+      },
+      {
+        "file": "P11-22_30_GML.zip",
+        "sha256": "32f176c3f74dfb77acba0bd89f9ddfed0742adebbc78dc5efa64fa419f7164ff"
+      }
+    ],
+    "source_crs": "EPSG:6668",
+    "output_crs": "EPSG:4326",
+    "processing": "同名で代表点から100m以内の停留所を統合。元の位置・事業者・系統名を保持。高速・デマンドバスは原典対象外。現在の運行は未確認。"
+  }
+}

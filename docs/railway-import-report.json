@@ -1,0 +1,896 @@
+{
+  "stations": [
+    {
+      "id": "osaka",
+      "name": "大阪",
+      "shift_m": 37.4,
+      "rail_snap_m": 0.0,
+      "source_route": "大阪環状線",
+      "source_code": "007069"
+    },
+    {
+      "id": "fukushima",
+      "name": "福島",
+      "shift_m": 29.4,
+      "rail_snap_m": 0.0,
+      "source_route": "大阪環状線",
+      "source_code": "007091"
+    },
+    {
+      "id": "nishikujo",
+      "name": "西九条",
+      "shift_m": 37.9,
+      "rail_snap_m": 0.0,
+      "source_route": "大阪環状線",
+      "source_code": "007188"
+    },
+    {
+      "id": "bentencho",
+      "name": "弁天町",
+      "shift_m": 84.3,
+      "rail_snap_m": 0.0,
+      "source_route": "大阪環状線",
+      "source_code": "007285"
+    },
+    {
+      "id": "taisho",
+      "name": "大正",
+      "shift_m": 20.2,
+      "rail_snap_m": 0.0,
+      "source_route": "大阪環状線",
+      "source_code": "007336"
+    },
+    {
+      "id": "shinimamiya",
+      "name": "新今宮",
+      "shift_m": 66.7,
+      "rail_snap_m": 0.0,
+      "source_route": "大阪環状線",
+      "source_code": "007424"
+    },
+    {
+      "id": "tennoji",
+      "name": "天王寺",
+      "shift_m": 132.9,
+      "rail_snap_m": 0.0,
+      "source_route": "1号線(御堂筋線)",
+      "source_code": "007446"
+    },
+    {
+      "id": "tsuruhashi",
+      "name": "鶴橋",
+      "shift_m": 39.4,
+      "rail_snap_m": 0.0,
+      "source_route": "大阪環状線",
+      "source_code": "007330"
+    },
+    {
+      "id": "morinomiya",
+      "name": "森ノ宮",
+      "shift_m": 91.5,
+      "rail_snap_m": 0.0,
+      "source_route": "4号線(中央線)",
+      "source_code": "007202"
+    },
+    {
+      "id": "kyobashi",
+      "name": "京橋",
+      "shift_m": 115.8,
+      "rail_snap_m": 0.0,
+      "source_route": "大阪環状線",
+      "source_code": "007095"
+    },
+    {
+      "id": "sakuranomiya",
+      "name": "桜ノ宮",
+      "shift_m": 101.7,
+      "rail_snap_m": 0.0,
+      "source_route": "大阪環状線",
+      "source_code": "007050"
+    },
+    {
+      "id": "temma",
+      "name": "天満",
+      "shift_m": 29.2,
+      "rail_snap_m": 0.0,
+      "source_route": "大阪環状線",
+      "source_code": "007051"
+    },
+    {
+      "id": "shinosaka",
+      "name": "新大阪",
+      "shift_m": 135.9,
+      "rail_snap_m": 0.0,
+      "source_route": "東海道線",
+      "source_code": "006910"
+    },
+    {
+      "id": "suita",
+      "name": "吹田",
+      "shift_m": 74.1,
+      "rail_snap_m": 0.0,
+      "source_route": "東海道線",
+      "source_code": "006779"
+    },
+    {
+      "id": "ibaraki",
+      "name": "茨木",
+      "shift_m": 14.1,
+      "rail_snap_m": 0.0,
+      "source_route": "東海道線",
+      "source_code": "006567"
+    },
+    {
+      "id": "takatsuki",
+      "name": "高槻",
+      "shift_m": 51.5,
+      "rail_snap_m": 0.0,
+      "source_route": "東海道線",
+      "source_code": "006432"
+    },
+    {
+      "id": "kyoto",
+      "name": "京都",
+      "shift_m": 26.6,
+      "rail_snap_m": 0.0,
+      "source_route": "東海道線",
+      "source_code": "006077"
+    },
+    {
+      "id": "amagasaki",
+      "name": "尼崎",
+      "shift_m": 84.1,
+      "rail_snap_m": 0.0,
+      "source_route": "東海道線",
+      "source_code": "006919"
+    },
+    {
+      "id": "nishinomiya",
+      "name": "西宮",
+      "shift_m": 163.3,
+      "rail_snap_m": 0.0,
+      "source_route": "東海道線",
+      "source_code": "006881"
+    },
+    {
+      "id": "ashiya",
+      "name": "芦屋",
+      "shift_m": 10.8,
+      "rail_snap_m": 0.0,
+      "source_route": "東海道線",
+      "source_code": "006908"
+    },
+    {
+      "id": "sumiyoshi",
+      "name": "住吉（JR）",
+      "shift_m": 92.2,
+      "rail_snap_m": 0.0,
+      "source_route": "東海道線",
+      "source_code": "006974"
+    },
+    {
+      "id": "sannomiya",
+      "name": "三ノ宮",
+      "shift_m": 159.6,
+      "rail_snap_m": 0.0,
+      "source_route": "東海道線",
+      "source_code": "007105"
+    },
+    {
+      "id": "kobe",
+      "name": "神戸",
+      "shift_m": 43.6,
+      "rail_snap_m": 0.0,
+      "source_route": "東海道線",
+      "source_code": "007225"
+    },
+    {
+      "id": "yodoyabashi",
+      "name": "淀屋橋",
+      "shift_m": 121.6,
+      "rail_snap_m": 0.0,
+      "source_route": "1号線(御堂筋線)",
+      "source_code": "007142"
+    },
+    {
+      "id": "hommachi",
+      "name": "本町",
+      "shift_m": 82.8,
+      "rail_snap_m": 0.0,
+      "source_route": "4号線(中央線)",
+      "source_code": "007195"
+    },
+    {
+      "id": "shinsaibashi",
+      "name": "心斎橋",
+      "shift_m": 43.1,
+      "rail_snap_m": 0.0,
+      "source_route": "1号線(御堂筋線)",
+      "source_code": "007262"
+    },
+    {
+      "id": "namba",
+      "name": "なんば",
+      "shift_m": 118.7,
+      "rail_snap_m": 0.0,
+      "source_route": "1号線(御堂筋線)",
+      "source_code": "007322"
+    },
+    {
+      "id": "nagai",
+      "name": "長居",
+      "shift_m": 85.6,
+      "rail_snap_m": 0.0,
+      "source_route": "1号線(御堂筋線)",
+      "source_code": "007577"
+    },
+    {
+      "id": "nakamozu",
+      "name": "なかもず",
+      "shift_m": 77.3,
+      "rail_snap_m": 0.0,
+      "source_route": "1号線(御堂筋線)",
+      "source_code": "007710"
+    },
+    {
+      "id": "osakako",
+      "name": "大阪港",
+      "shift_m": 7.7,
+      "rail_snap_m": 0.0,
+      "source_route": "4号線(中央線)",
+      "source_code": "007409"
+    },
+    {
+      "id": "awaza",
+      "name": "阿波座",
+      "shift_m": 149.7,
+      "rail_snap_m": 0.0,
+      "source_route": "4号線(中央線)",
+      "source_code": "007206"
+    },
+    {
+      "id": "tanimachi4",
+      "name": "谷町四丁目",
+      "shift_m": 52.1,
+      "rail_snap_m": 0.0,
+      "source_route": "2号線(谷町線)",
+      "source_code": "007194"
+    },
+    {
+      "id": "fukaebashi",
+      "name": "深江橋",
+      "shift_m": 95.3,
+      "rail_snap_m": 0.0,
+      "source_route": "4号線(中央線)",
+      "source_code": "007226"
+    },
+    {
+      "id": "nagata",
+      "name": "長田",
+      "shift_m": 25.0,
+      "rail_snap_m": 0.0,
+      "source_route": "4号線(中央線)",
+      "source_code": "007232"
+    },
+    {
+      "id": "kyuhoji",
+      "name": "久宝寺",
+      "shift_m": 69.7,
+      "rail_snap_m": 0.0,
+      "source_route": "関西線",
+      "source_code": "007536"
+    },
+    {
+      "id": "oji",
+      "name": "王寺",
+      "shift_m": 30.0,
+      "rail_snap_m": 0.0,
+      "source_route": "関西線",
+      "source_code": "007616"
+    },
+    {
+      "id": "nara",
+      "name": "奈良",
+      "shift_m": 4.6,
+      "rail_snap_m": 0.0,
+      "source_route": "関西線",
+      "source_code": "007210"
+    },
+    {
+      "id": "hankyu_umeda",
+      "name": "大阪梅田（阪急）",
+      "shift_m": 10.4,
+      "rail_snap_m": 0.0,
+      "source_route": "神戸線",
+      "source_code": "007049"
+    },
+    {
+      "id": "juso",
+      "name": "十三",
+      "shift_m": 28.7,
+      "rail_snap_m": 0.0,
+      "source_route": "神戸線",
+      "source_code": "006970"
+    },
+    {
+      "id": "tsukaguchi",
+      "name": "塚口（阪急）",
+      "shift_m": 54.1,
+      "rail_snap_m": 0.0,
+      "source_route": "神戸線",
+      "source_code": "006821"
+    },
+    {
+      "id": "nishikita",
+      "name": "西宮北口",
+      "shift_m": 25.6,
+      "rail_snap_m": 0.0,
+      "source_route": "神戸線",
+      "source_code": "006853"
+    },
+    {
+      "id": "shukugawa",
+      "name": "夙川",
+      "shift_m": 43.2,
+      "rail_snap_m": 0.0,
+      "source_route": "神戸線",
+      "source_code": "006863"
+    },
+    {
+      "id": "okamoto",
+      "name": "岡本",
+      "shift_m": 132.9,
+      "rail_snap_m": 0.0,
+      "source_route": "神戸線",
+      "source_code": "006930"
+    },
+    {
+      "id": "hankyu_sannomiya",
+      "name": "神戸三宮（阪急）",
+      "shift_m": 66.3,
+      "rail_snap_m": 0.0,
+      "source_route": "神戸線",
+      "source_code": "007121"
+    },
+    {
+      "id": "awaji",
+      "name": "淡路",
+      "shift_m": 18.3,
+      "rail_snap_m": 0.0,
+      "source_route": "京都線",
+      "source_code": "006876"
+    },
+    {
+      "id": "ibaraki_shi",
+      "name": "茨木市",
+      "shift_m": 63.2,
+      "rail_snap_m": 0.0,
+      "source_route": "京都線",
+      "source_code": "006562"
+    },
+    {
+      "id": "takatsuki_shi",
+      "name": "高槻市",
+      "shift_m": 23.5,
+      "rail_snap_m": 0.0,
+      "source_route": "京都線",
+      "source_code": "006440"
+    },
+    {
+      "id": "katsura",
+      "name": "桂",
+      "shift_m": 92.1,
+      "rail_snap_m": 0.0,
+      "source_route": "京都線",
+      "source_code": "006103"
+    },
+    {
+      "id": "karasuma",
+      "name": "烏丸",
+      "shift_m": 127.8,
+      "rail_snap_m": 0.0,
+      "source_route": "京都線",
+      "source_code": "005992"
+    },
+    {
+      "id": "kawaramachi",
+      "name": "京都河原町",
+      "shift_m": 29.4,
+      "rail_snap_m": 0.0,
+      "source_route": "京都線",
+      "source_code": "005990"
+    },
+    {
+      "id": "toyonaka",
+      "name": "豊中",
+      "shift_m": 60.1,
+      "rail_snap_m": 0.0,
+      "source_route": "宝塚線",
+      "source_code": "006689"
+    },
+    {
+      "id": "ishibashi",
+      "name": "石橋阪大前",
+      "shift_m": 33.9,
+      "rail_snap_m": 0.0,
+      "source_route": "宝塚線",
+      "source_code": "006594"
+    },
+    {
+      "id": "kawanishi",
+      "name": "川西能勢口",
+      "shift_m": 51.9,
+      "rail_snap_m": 0.0,
+      "source_route": "宝塚線",
+      "source_code": "006504"
+    },
+    {
+      "id": "takarazuka",
+      "name": "宝塚",
+      "shift_m": 222.8,
+      "rail_snap_m": 0.0,
+      "source_route": "宝塚線",
+      "source_code": "006586"
+    },
+    {
+      "id": "hanshin_umeda",
+      "name": "大阪梅田（阪神）",
+      "shift_m": 127.5,
+      "rail_snap_m": 0.0,
+      "source_route": "本線",
+      "source_code": "007071"
+    },
+    {
+      "id": "hanshin_amagasaki",
+      "name": "尼崎（阪神）",
+      "shift_m": 10.1,
+      "rail_snap_m": 0.0,
+      "source_route": "阪神なんば線",
+      "source_code": "006981"
+    },
+    {
+      "id": "koshien",
+      "name": "甲子園",
+      "shift_m": 21.1,
+      "rail_snap_m": 0.0,
+      "source_route": "本線",
+      "source_code": "006954"
+    },
+    {
+      "id": "hanshin_nishinomiya",
+      "name": "西宮（阪神）",
+      "shift_m": 112.0,
+      "rail_snap_m": 0.0,
+      "source_route": "本線",
+      "source_code": "006894"
+    },
+    {
+      "id": "hanshin_ashiya",
+      "name": "芦屋（阪神）",
+      "shift_m": 52.1,
+      "rail_snap_m": 0.0,
+      "source_route": "本線",
+      "source_code": "006936"
+    },
+    {
+      "id": "uozaki",
+      "name": "魚崎",
+      "shift_m": 76.2,
+      "rail_snap_m": 0.0,
+      "source_route": "本線",
+      "source_code": "007012"
+    },
+    {
+      "id": "hanshin_sannomiya",
+      "name": "神戸三宮（阪神）",
+      "shift_m": 100.1,
+      "rail_snap_m": 0.0,
+      "source_route": "本線",
+      "source_code": "007116"
+    },
+    {
+      "id": "motomachi",
+      "name": "元町（阪神）",
+      "shift_m": 56.3,
+      "rail_snap_m": 0.0,
+      "source_route": "本線",
+      "source_code": "007161"
+    },
+    {
+      "id": "kujo",
+      "name": "九条",
+      "shift_m": 240.3,
+      "rail_snap_m": 0.0,
+      "source_route": "阪神なんば線",
+      "source_code": "007274"
+    },
+    {
+      "id": "sakuragawa",
+      "name": "桜川",
+      "shift_m": 89.6,
+      "rail_snap_m": 0.0,
+      "source_route": "阪神なんば線",
+      "source_code": "007294"
+    },
+    {
+      "id": "osaka_namba",
+      "name": "大阪難波",
+      "shift_m": 36.6,
+      "rail_snap_m": 0.0,
+      "source_route": "阪神なんば線",
+      "source_code": "007308"
+    },
+    {
+      "id": "uehommachi",
+      "name": "大阪上本町",
+      "shift_m": 55.9,
+      "rail_snap_m": 0.0,
+      "source_route": "大阪線",
+      "source_code": "007326"
+    },
+    {
+      "id": "fuse",
+      "name": "布施",
+      "shift_m": 53.7,
+      "rail_snap_m": 0.0,
+      "source_route": "大阪線",
+      "source_code": "007347"
+    },
+    {
+      "id": "higashihanazono",
+      "name": "東花園",
+      "shift_m": 120.8,
+      "rail_snap_m": 0.0,
+      "source_route": "奈良線",
+      "source_code": "007363"
+    },
+    {
+      "id": "ikoma",
+      "name": "生駒",
+      "shift_m": 61.0,
+      "rail_snap_m": 0.0,
+      "source_route": "奈良線",
+      "source_code": "007123"
+    },
+    {
+      "id": "saidaiji",
+      "name": "大和西大寺",
+      "shift_m": 20.5,
+      "rail_snap_m": 0.0,
+      "source_route": "奈良線",
+      "source_code": "007119"
+    },
+    {
+      "id": "kintetsu_nara",
+      "name": "近鉄奈良",
+      "shift_m": 69.7,
+      "rail_snap_m": 0.0,
+      "source_route": "奈良線",
+      "source_code": "007183"
+    },
+    {
+      "id": "kintetsu_yao",
+      "name": "近鉄八尾",
+      "shift_m": 51.9,
+      "rail_snap_m": 0.0,
+      "source_route": "大阪線",
+      "source_code": "007510"
+    },
+    {
+      "id": "kawachi_yamamoto",
+      "name": "河内山本",
+      "shift_m": 62.8,
+      "rail_snap_m": 0.0,
+      "source_route": "大阪線",
+      "source_code": "007521"
+    },
+    {
+      "id": "takaida_osaka",
+      "name": "河内国分",
+      "shift_m": 120.5,
+      "rail_snap_m": 0.0,
+      "source_route": "大阪線",
+      "source_code": "007692"
+    },
+    {
+      "id": "yamato_yagi",
+      "name": "大和八木",
+      "shift_m": 53.7,
+      "rail_snap_m": 0.0,
+      "source_route": "大阪線",
+      "source_code": "007811"
+    },
+    {
+      "id": "kitahama",
+      "name": "北浜",
+      "shift_m": 67.1,
+      "rail_snap_m": 0.0,
+      "source_route": "京阪本線",
+      "source_code": "007141"
+    },
+    {
+      "id": "temmabashi",
+      "name": "天満橋",
+      "shift_m": 47.7,
+      "rail_snap_m": 0.0,
+      "source_route": "京阪本線",
+      "source_code": "007148"
+    },
+    {
+      "id": "moriguchi_shi",
+      "name": "守口市",
+      "shift_m": 15.2,
+      "rail_snap_m": 0.0,
+      "source_route": "京阪本線",
+      "source_code": "006900"
+    },
+    {
+      "id": "neyagawa",
+      "name": "寝屋川市",
+      "shift_m": 57.6,
+      "rail_snap_m": 0.0,
+      "source_route": "京阪本線",
+      "source_code": "006776"
+    },
+    {
+      "id": "hirakata",
+      "name": "枚方市",
+      "shift_m": 59.4,
+      "rail_snap_m": 0.0,
+      "source_route": "京阪本線",
+      "source_code": "006563"
+    },
+    {
+      "id": "kuzuha",
+      "name": "樟葉",
+      "shift_m": 108.3,
+      "rail_snap_m": 0.0,
+      "source_route": "京阪本線",
+      "source_code": "006407"
+    },
+    {
+      "id": "chushojima",
+      "name": "中書島",
+      "shift_m": 27.0,
+      "rail_snap_m": 0.0,
+      "source_route": "京阪本線",
+      "source_code": "006245"
+    },
+    {
+      "id": "tambabashi",
+      "name": "丹波橋",
+      "shift_m": 45.9,
+      "rail_snap_m": 0.0,
+      "source_route": "京阪本線",
+      "source_code": "006217"
+    },
+    {
+      "id": "shichijo",
+      "name": "七条",
+      "shift_m": 22.4,
+      "rail_snap_m": 0.0,
+      "source_route": "京阪本線",
+      "source_code": "006056"
+    },
+    {
+      "id": "gion_shijo",
+      "name": "祇園四条",
+      "shift_m": 48.6,
+      "rail_snap_m": 0.0,
+      "source_route": "京阪本線",
+      "source_code": "005997"
+    },
+    {
+      "id": "sanjo",
+      "name": "三条",
+      "shift_m": 47.2,
+      "rail_snap_m": 0.0,
+      "source_route": "鴨東線",
+      "source_code": "005971"
+    },
+    {
+      "id": "demachiyanagi",
+      "name": "出町柳",
+      "shift_m": 22.1,
+      "rail_snap_m": 0.0,
+      "source_route": "鴨東線",
+      "source_code": "005878"
+    },
+    {
+      "id": "nakanoshima",
+      "name": "中之島",
+      "shift_m": 308.9,
+      "rail_snap_m": 0.0,
+      "source_route": "中之島線",
+      "source_code": "007140"
+    },
+    {
+      "id": "watanabebashi",
+      "name": "渡辺橋",
+      "shift_m": 337.2,
+      "rail_snap_m": 0.0,
+      "source_route": "中之島線",
+      "source_code": "007114"
+    },
+    {
+      "id": "oe_bridge",
+      "name": "大江橋",
+      "shift_m": 143.9,
+      "rail_snap_m": 0.0,
+      "source_route": "中之島線",
+      "source_code": "007110"
+    },
+    {
+      "id": "naniwabashi",
+      "name": "なにわ橋",
+      "shift_m": 29.4,
+      "rail_snap_m": 0.0,
+      "source_route": "中之島線",
+      "source_code": "007132"
+    },
+    {
+      "id": "umeda_metro",
+      "name": "梅田（メトロ）",
+      "shift_m": 58.1,
+      "rail_snap_m": 0.0,
+      "source_route": "1号線(御堂筋線)",
+      "source_code": "007065"
+    },
+    {
+      "id": "higashi_umeda",
+      "name": "東梅田",
+      "shift_m": 71.4,
+      "rail_snap_m": 0.0,
+      "source_route": "2号線(谷町線)",
+      "source_code": "007074"
+    },
+    {
+      "id": "tenroku",
+      "name": "天神橋筋六丁目",
+      "shift_m": 124.6,
+      "rail_snap_m": 0.0,
+      "source_route": "6号線(堺筋線)",
+      "source_code": "007029"
+    },
+    {
+      "id": "minamimorimachi",
+      "name": "南森町",
+      "shift_m": 66.4,
+      "rail_snap_m": 0.0,
+      "source_route": "2号線(谷町線)",
+      "source_code": "007089"
+    },
+    {
+      "id": "tanimachi9",
+      "name": "谷町九丁目",
+      "shift_m": 33.0,
+      "rail_snap_m": 0.0,
+      "source_route": "2号線(谷町線)",
+      "source_code": "007306"
+    },
+    {
+      "id": "miyakojima",
+      "name": "都島",
+      "shift_m": 50.1,
+      "rail_snap_m": 0.0,
+      "source_route": "2号線(谷町線)",
+      "source_code": "007032"
+    },
+    {
+      "id": "dainichi",
+      "name": "大日",
+      "shift_m": 66.2,
+      "rail_snap_m": 0.0,
+      "source_route": "2号線(谷町線)",
+      "source_code": "006835"
+    },
+    {
+      "id": "tanimachi6",
+      "name": "谷町六丁目",
+      "shift_m": 34.8,
+      "rail_snap_m": 0.0,
+      "source_route": "2号線(谷町線)",
+      "source_code": "007255"
+    },
+    {
+      "id": "taishibashi",
+      "name": "太子橋今市",
+      "shift_m": 53.6,
+      "rail_snap_m": 0.0,
+      "source_route": "2号線(谷町線)",
+      "source_code": "006923"
+    },
+    {
+      "id": "nagahoribashi",
+      "name": "長堀橋",
+      "shift_m": 45.0,
+      "rail_snap_m": 0.0,
+      "source_route": "7号線(長堀鶴見緑地線)",
+      "source_code": "007254"
+    },
+    {
+      "id": "nipponbashi",
+      "name": "日本橋",
+      "shift_m": 52.2,
+      "rail_snap_m": 0.0,
+      "source_route": "6号線(堺筋線)",
+      "source_code": "007318"
+    },
+    {
+      "id": "dobutsuen",
+      "name": "動物園前",
+      "shift_m": 114.1,
+      "rail_snap_m": 0.0,
+      "source_route": "6号線(堺筋線)",
+      "source_code": "007435"
+    },
+    {
+      "id": "taisho_metro",
+      "name": "大正（メトロ）",
+      "shift_m": 92.7,
+      "rail_snap_m": 0.0,
+      "source_route": "7号線(長堀鶴見緑地線)",
+      "source_code": "007327"
+    },
+    {
+      "id": "osaka_business",
+      "name": "大阪ビジネスパーク",
+      "shift_m": 81.1,
+      "rail_snap_m": 0.0,
+      "source_route": "7号線(長堀鶴見緑地線)",
+      "source_code": "007137"
+    },
+    {
+      "id": "gamo4",
+      "name": "蒲生四丁目",
+      "shift_m": 127.3,
+      "rail_snap_m": 0.0,
+      "source_route": "7号線(長堀鶴見緑地線)",
+      "source_code": "007075"
+    },
+    {
+      "id": "tsurumi",
+      "name": "鶴見緑地",
+      "shift_m": 65.4,
+      "rail_snap_m": 0.0,
+      "source_route": "7号線(長堀鶴見緑地線)",
+      "source_code": "007018"
+    },
+    {
+      "id": "kadoma_minami",
+      "name": "門真南",
+      "shift_m": 60.1,
+      "rail_snap_m": 0.0,
+      "source_route": "7号線(長堀鶴見緑地線)",
+      "source_code": "006994"
+    }
+  ],
+  "station_count": 2041,
+  "station_grouping": {
+    "source_record_count": 2361,
+    "station_count": 2041,
+    "method": "N02_005g station groups; nearby same names within 500m; Osaka/Umeda, Namba, Sannomiya interchange aliases within 900m. One original railway anchor per group; member positions retained."
+  },
+  "route_count": 180,
+  "part_count": 4964,
+  "vertex_count": 75757,
+  "source": {
+    "url": "https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N02-2025.html",
+    "download_url": "https://nlftp.mlit.go.jp/ksj/gml/data/N02/N02-25/N02-25_GML.zip",
+    "reference_date": "2025-12-31",
+    "retrieved": "2026-09-12",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source_crs": "EPSG:6668",
+    "output_crs": "EPSG:4326",
+    "transform_accuracy_m": 1.0,
+    "bbox": [
+      134.15,
+      33.35,
+      136.9,
+      35.85
+    ],
+    "archive_sha256": "aaf76af133b2e771e538fabc4646d2e443dc1d5a67b221382a28d744e706cc9f",
+    "processing": "指定路線抽出、範囲切り出し、重複除去、WGS84変換。曲線頂点は簡略化せず保持。駅は該当駅区間の長さの中点を、同事業者・同路線の線形へ投影。"
+  }
+}

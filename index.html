@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#146b61"><meta name="description" content="関西の駅を複数選び、自転車でイベントを経由して別の駅へ。駅から広がる到達圏を比較するマップ。"><title>りーち～ず</title></head><body>
+<main><aside><div class="sidebar-heading"><h1>りーち～ず</h1></div>
+<section class="network-options" aria-label="地図の表示"><h2>地図の表示</h2>
+<div class="network-group"><label><input id="show-rail" aria-label="鉄道路線" type="checkbox" checked> 鉄道路線</label><div id="rail-switches"></div></div>
+<div class="network-group"><label><input id="show-stations" type="checkbox" checked> 駅</label></div>
+<div class="network-group"><label><input id="show-bus" aria-label="バス路線" type="checkbox" checked> バス路線（事業者別）</label><div id="bus-switches"></div></div>
+<div class="network-group"><label><input id="show-bus-stops" type="checkbox" checked> バス停留所</label></div>
+</section><section class="controls" aria-label="到達圏の条件"><div class="section-title"><h2>利用する駅</h2><button id="clear" disabled>選択解除</button></div><div id="selected" aria-live="polite"></div><details><summary>駅名から選ぶ</summary><input id="station-search" type="search" aria-label="駅・バス停を検索" placeholder="駅・バス停名、会社名を検索"><p id="station-search-count" class="hint"></p><div id="station-list"></div></details>
+<label for="travel-mode">移動手段</label><select id="travel-mode" disabled><option value="bike">自転車</option><option value="walk">徒歩</option></select><label for="budget">移動時間 <strong id="budget-label">各区間 20分</strong></label><input id="budget" type="range" min="5" max="30" step="5" value="20" disabled><div class="range-labels"><span>5分</span><span>30分</span></div>
+
+</section>
+<details id="journey-editor"><summary>旅程</summary>
+
+<label for="journey-start">出発</label><select id="journey-start"></select>
+<label for="journey-end">到着</label><select id="journey-end"></select>
+
+<label for="journey-point">経由地点</label><select id="journey-point"></select>
+<label for="journey-position">追加位置</label><select id="journey-position"></select>
+<div class="journey-actions"><button id="journey-add">経由地点を追加</button><button id="journey-clear">旅程をクリア</button><button id="journey-fit" disabled>地図で見る</button></div>
+<ol id="journey-stops"></ol><p id="journey-summary" role="status"></p>
+</details>
+
+<div class="stats" aria-live="polite"><div><strong id="count">—</strong><span>条件を満たすイベント</span></div></div>
+<p id="selection-help" class="hint" aria-live="polite"></p><h2>イベント <span id="list-count"></span></h2><div id="events" aria-live="polite"></div><details class="data-details"><summary>データについて</summary><p id="coverage-summary" class="hint"></p><p class="sample">鉄道：国土数値情報2025年度。イベント・自転車時間は架空で、実道路のアイソクロンではありません。</p><p id="reach-method" class="hint">徒歩4.5km/h、自転車15km/hの距離換算です。道路・河川・坂は反映しません。実道路で計算した到達圏は通常、円にはなりません。</p><p id="bus-status" class="hint" role="status">高速バスは対象外。現在の運行・乗車時間は未確認。停留所からの徒歩・自転車圏は距離に基づく推定です。</p><p class="hint">徒歩・自転車とも上の時間上限で判定。新しく追加する区間は選択中の移動手段を使い、区間ごとに変更できます。移動時間は直線距離からの推定です。公共交通の時間・接続、イベントの開催時刻、滞在時間、貸出返却は未計算。地図の旅程線は接続イメージです。線上の番号は旅程の順番を表します。</p></details></aside>
+<section class="map-panel" aria-label="関西の鉄道路線と駅からの自転車到達圏"><div id="map"></div><div class="map-top"><span id="scenario">データを読み込み中…</span><div><button id="fit-selection" disabled>選択駅周辺</button><button id="reset">関西全体</button></div></div><div id="status" role="status"></div>
+<div class="legend"><strong>駅から広がる範囲</strong><span><i class="red-area area"></i><span id="area-label">選択駅から自転車で行ける範囲</span></span><div id="reach-scale" aria-label="自転車所要時間の色分け"></div><span class="scale-note">近い駅からの時間：濃い赤 → 淡い赤<br>各色は表示分数以内（5分刻み）</span><hr><strong>イベントの種類</strong><div id="event-symbols"></div><details><summary>ピンの色：到達可否</summary><span><i class="green"></i>自転車で到達可能</span><span><i class="blue"></i>徒歩で到達可能</span><span><i class="gray"></i>選択条件の範囲外</span></details><hr><details><summary>表示している鉄道路線</summary><div id="line-legend"></div></details></div>
+<div id="route-detail" hidden aria-live="polite"></div></section></main>
+<footer>背景地図 © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a></footer><script type="module" src="./src/main.js"></script></body></html>
